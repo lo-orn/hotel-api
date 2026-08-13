@@ -7,7 +7,7 @@ export type Customer = {
     bookingCount: number;
 }
 
-//POST/put
+//POST/PUT
 export type CustomerDataForm = {
     firstName: string;
     lastName: string;
