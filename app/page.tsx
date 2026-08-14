@@ -5,6 +5,7 @@ import { Hotel } from "./models/Hotel";
 import { Customer } from "./models/Customer";
 import { Booking } from "./models/Booking";
 import { getBookings, getCustomers, getHotels } from "./services/hotelApi";
+import { Customers } from "./components/customers/Customers";
 
 export default function Home() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
@@ -30,11 +31,16 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
-      <h1>Hotel bookings</h1>
-      <p>Hoteller: {hotels.length}</p>
-      <p>Gäster: {customers.length}</p>
-      <p>Bokningar: {bookings.length}</p>
-    </main>
+    <>
+      <main>
+        <h1>Välkomna till hotellbokning</h1>
+        <p>Hoteller: {hotels.length}</p>
+        <p>Gäster: {customers.length}</p>
+        <p>Bokningar: {bookings.length}</p>
+      </main>
+      <section>
+        <Customers customers={customers} />
+      </section>
+    </>
   );
 }
