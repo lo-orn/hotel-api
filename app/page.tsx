@@ -6,6 +6,7 @@ import { Customer } from "./models/Customer";
 import { Booking } from "./models/Booking";
 import { getBookings, getCustomers, getHotels } from "./services/hotelApi";
 import { Customers } from "./components/customers/Customers";
+import { HeroSectionMain } from "./components/HeroSectionMain";
 
 export default function Home() {
   const [hotels, setHotels] = useState<Hotel[]>([]);
@@ -41,6 +42,9 @@ export default function Home() {
       <section>
         <Customers customers={customers} />
       </section>
+         <section>
+          <HeroSectionMain bookings={bookings}/>
+        </section>
     </>
   );
 }
