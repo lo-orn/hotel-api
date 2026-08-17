@@ -7,13 +7,13 @@ type ShowCustomerProp = {
 export const ShowCustomer = ({ customer }: ShowCustomerProp) => {
   return (
     <>
-      <p>
-        {customer.firstName} {customer.lastName}
-      </p>
-      <p>
-        {customer.email}
-      </p>
-      <p>{customer.bookingCount}</p>
+      <tr>
+        <td>
+          {customer.firstName} {customer.lastName}
+        </td>
+        <td>{customer.email}</td>
+        <td>{customer.bookingCount}</td>
+      </tr>
     </>
   );
 };
