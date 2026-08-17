@@ -1,4 +1,3 @@
-//GET
 export type Booking = {
   id: number;
   hotelId: number;
@@ -10,7 +9,7 @@ export type Booking = {
   guests: number;
 };
 
-//POST/PUT
+
 export type BookingDataForm = {
   hotelId: number;
   customerId: number;

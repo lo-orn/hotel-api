@@ -1,4 +1,4 @@
-//GET
+
 export type Customer = {
     id: number;
     firstName: string;
@@ -7,7 +7,6 @@ export type Customer = {
     bookingCount: number;
 }
 
-//POST/PUT
 export type CustomerDataForm = {
     firstName: string;
     lastName: string;
