@@ -1,14 +1,20 @@
-
 export type Customer = {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    bookingCount: number;
-}
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+  database: string;
+  resource: string;
+  data: CustomerData;
+};
+
+export type CustomerData = {
+  email: string;
+  firstName: string;
+  lastName: string;
+};
 
 export type CustomerDataForm = {
-    firstName: string;
-    lastName: string;
-    email: string;
+  email: string;
+  firstName: string;
+  lastName: string;
 }
