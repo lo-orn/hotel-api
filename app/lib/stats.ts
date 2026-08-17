@@ -13,7 +13,7 @@ export const countCheckOutsToday = (bookings: Booking[]) => {
   const today = new Date();
 
   return bookings.filter((booking) =>
-    isSameDay(new Date(booking.checkOutDate), today),
+    isSameDay(new Date(booking.data.checkOutDate), today),
   ).length;
 };
 
@@ -21,7 +21,7 @@ export const countCheckInsToday = (bookings: Booking[]) => {
   const today = new Date();
 
   return bookings.filter((booking) =>
-    isSameDay(new Date(booking.checkInDate), today),
+    isSameDay(new Date(booking.data.checkInDate), today),
   ).length;
 };
 
@@ -29,8 +29,8 @@ export const countCheckedInNow = (bookings: Booking[]) => {
   const today = new Date();
 
   return bookings.filter((booking) => {
-    const checkIn = new Date(booking.checkInDate);
-    const checkOut = new Date(booking.checkOutDate);
+    const checkIn = new Date(booking.data.checkInDate);
+    const checkOut = new Date(booking.data.checkOutDate);
 
     return checkIn <= today && checkOut >= today;
   }).length;

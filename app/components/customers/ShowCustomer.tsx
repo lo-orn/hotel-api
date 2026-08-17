@@ -9,10 +9,9 @@ export const ShowCustomer = ({ customer }: ShowCustomerProp) => {
     <>
       <tr>
         <td>
-          {customer.firstName} {customer.lastName}
+          {customer.data.firstName} {customer.data.lastName}
         </td>
-        <td>{customer.email}</td>
-        <td>{customer.bookingCount}</td>
+        <td>{customer.data.email}</td>
       </tr>
     </>
   );
