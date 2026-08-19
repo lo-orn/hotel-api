@@ -4,31 +4,41 @@ import { HeroSectionMain } from "./components/HeroSectionMain";
 import QuickActionSection from "./components/QuickActionSection";
 import HeroGuestSection from "./components/HeroGuestSection";
 import { Customer } from "./models/Customer";
+import { Hotel } from "./models/Hotel";
+import { seedHotel } from "./lib/seedHotel";
 
-const GARDEN_HOTEL_ID = "06504f9d-9f6f-43b0-a7e4-9229ef981bcc";
+const LADAN_HOTEL_ID = "16df1534-f9d7-4300-aa5e-e9b50b9b9516";
 
 export default async function Home() {
   let bookings: Booking[] = [];
   let customers: Customer[] = [];
+  let hotels: Hotel[] = []
+  
 
   try {
+    hotels = await seedHotel();
     bookings = await getBookings();
     customers = await getCustomers();
+
   } catch (error) {
     console.error(error);
   }
+
 
   return (
     <>
       <main>
         <section>
-          <HeroSectionMain bookings={bookings} hotelId={GARDEN_HOTEL_ID}/>
+          <HeroSectionMain bookings={bookings} hotelId={LADAN_HOTEL_ID} />
         </section>
         <section>
           <QuickActionSection />
         </section>
-        <HeroGuestSection bookings={bookings} customers={customers}
-          hotelId={GARDEN_HOTEL_ID}/>
+        <HeroGuestSection
+          bookings={bookings}
+          customers={customers}
+          hotelId={LADAN_HOTEL_ID}
+        />
       </main>
     </>
   );

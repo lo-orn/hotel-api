@@ -8,7 +8,6 @@ export type Hotel = {
 };
 
 export type HotelData = {
-  id: string;
   name: string;
   address: string;
 };
