@@ -18,7 +18,9 @@ export const ShowBooking = ({
 
   const matchingCustomer = matchingCustomers[0];
 
-  let customerName = oneBooking.data.customerId;
+  //let customerName = oneBooking.data.customerId;
+  let customerName = "Okänd gäst!"
+  
 
   if (matchingCustomer) {
     customerName = `${matchingCustomer.data.firstName} ${matchingCustomer.data.lastName}`;
