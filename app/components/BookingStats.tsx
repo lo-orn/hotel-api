@@ -19,15 +19,15 @@ export function BookingStats({ bookings, hotelId }: BookingStatsProps){
   return (
     <div className="grid grid-cols-2">
       <StatCard
-        value={countCheckInsToday(bookings)}
+        value={countCheckInsToday(hotelBookings)}
         label="Incheckningar idag"
       />
       <StatCard
-        value={countCheckOutsToday(bookings)}
+        value={countCheckOutsToday(hotelBookings)}
         label="Utcheckningar idag"
       />
-      <StatCard value={countCheckedInNow(bookings)} label="Incheckade nu" />
-      <StatCard value={countAvailableRooms(bookings)} label="Lediga rum" />
+      <StatCard value={countCheckedInNow(hotelBookings)} label="Incheckade nu" />
+      <StatCard value={countAvailableRooms(hotelBookings)} label="Lediga rum" />
     </div>
   );
 };
