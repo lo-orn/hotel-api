@@ -2,9 +2,12 @@ import { Booking } from "./models/Booking";
 import { getBookings } from "./services/hotelApi";
 import { HeroSectionMain } from "./components/HeroSectionMain";
 import QuickActionSection from "./components/QuickActionSection";
+import HeroGuestSection from "./components/HeroGuestSection";
+
 
 export default async function Home() {
   let bookings: Booking[] = [];
+
   try {
     bookings = await getBookings();
   } catch (error) {
@@ -15,11 +18,12 @@ export default async function Home() {
     <>
       <main>
         <section>
-          <HeroSectionMain bookings={bookings} />
+          <HeroSectionMain bookings={bookings}/>
         </section>
         <section>
-          <QuickActionSection/>
+          <QuickActionSection />
         </section>
+        <HeroGuestSection bookings={bookings} hotelId={888}/>
       </main>
     </>
   );
