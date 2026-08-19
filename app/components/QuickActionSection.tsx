@@ -2,8 +2,8 @@ import { ActionButton } from "./buttons/ActionButton";
 
 export default function QuickActionSection() {
   return (
-    <div className="grid grid-cols-2 h-96 gap-y-4">
-      <div className="bg-stone p-10 flex items-center justify-center gap-4">
+    <div className="grid grid-cols-2 h-96 gap-2 m-4">
+      <div className="bg-primary p-10 flex items-center justify-center gap-4">
         <ActionButton label="+ Ny bokning" />
         <ActionButton label="+ Ny gäst" />
       </div>
