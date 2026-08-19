@@ -9,9 +9,13 @@ import { StatCard } from "./StatCard";
 
 type BookingStatsProps = {
   bookings: Booking[];
+  hotelId: string;
 };
 
-export function BookingStats({ bookings }: BookingStatsProps){
+export function BookingStats({ bookings, hotelId }: BookingStatsProps){
+
+  const hotelBookings = bookings.filter((booking) => booking.data.hotelId === hotelId)
+
   return (
     <div className="grid grid-cols-2">
       <StatCard

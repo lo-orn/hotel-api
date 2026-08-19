@@ -3,9 +3,10 @@ import { BookingStats } from "./BookingStats";
 
 type HeroSectionProps = {
   bookings: Booking[];
+  hotelId: string;
 };
 
-export function HeroSectionMain({ bookings }: HeroSectionProps) {
+export function HeroSectionMain({ bookings, hotelId }: HeroSectionProps) {
   const today = new Date().toLocaleDateString("sv-SE", {
     weekday: "long",
     day: "numeric",
@@ -25,7 +26,7 @@ export function HeroSectionMain({ bookings }: HeroSectionProps) {
            Dagens bokningsöversikt
           </h1>
         </div>
-        <BookingStats bookings={bookings} />
+        <BookingStats bookings={bookings} hotelId={hotelId}/>
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { findCustomerName } from "../lib/customers";
 import {
   countAvailableRooms,
   countNights,
@@ -5,21 +6,24 @@ import {
   getComingWeek,
 } from "../lib/stats";
 import { Booking } from "../models/Booking";
+import { Customer } from "../models/Customer";
 
 type GuestStatsProps = {
   bookings: Booking[];
-  hotelId: number;
+  hotelId: string;
+  customers: Customer[];
 };
 
 export default function HeroGuestSection({
   bookings,
   hotelId,
+  customers,
 }: GuestStatsProps) {
   const hotelBookings = bookings.filter(
-    (booking) => booking.hotelId === hotelId,
+    (booking) => booking.data.hotelId === hotelId,
   );
 
-  const availableRooms = countAvailableRooms(bookings);
+  const availableRooms = countAvailableRooms(hotelBookings);
   const checkIns = getCheckInsToday(hotelBookings);
   const comingWeek = getComingWeek(hotelBookings);
 
@@ -36,20 +40,19 @@ export default function HeroGuestSection({
         <div className="mt-6 divide-y divide-charcoal/10">
           {checkIns.map((booking) => (
             <div key={booking.id} className="py-4">
-              <p className="text-lg"> {booking.customerName}</p>
+              <p className="text-lg">
+                {findCustomerName(customers, booking.data.customerId)}
+              </p>
               <p className="mt-1 text-xs uppercase tracking-wide text-charcoal">
-                {countNights(booking.checkInDate, booking.checkOutDate)} nätter
-                - utcheckning {booking.checkOutDate}
+                {countNights(
+                  booking.data.checkInDate,
+                  booking.data.checkOutDate,
+                )}{" "}
+                nätter - utcheckning {booking.data.checkOutDate}
               </p>
             </div>
           ))}
-
-          <div className="py-4">
-            <p className="text-lg">Placeholder Namn</p>
-            <p className="mt-1 text-xs uppercase tracking-wide text-charcoal/50">
-              1 natt utcheckning 2026-08-13
-            </p>
-          </div>
+          
         </div>
       </div>
 
@@ -65,10 +68,15 @@ export default function HeroGuestSection({
           <div className="mt-6 divide-y divide-charcoal/10">
             {comingWeek.map((booking) => (
               <div key={booking.id} className="py-4">
-                <p className="text-lg">{booking.customerName}</p>
+                <p className="text-lg">
+                  {findCustomerName(customers, booking.data.customerId)}
+                </p>
                 <p className="mt-1 text-xs uppercase tracking-wide text-charcoal/50">
-                  {countNights(booking.checkInDate, booking.checkOutDate)}{" "}
-                  nätter in {booking.checkInDate}
+                  {countNights(
+                    booking.data.checkInDate,
+                    booking.data.checkOutDate,
+                  )}{" "}
+                  nätter in {booking.data.checkInDate}
                 </p>
               </div>
             ))}

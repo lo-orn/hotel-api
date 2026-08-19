@@ -29,7 +29,7 @@ export const getCheckInsToday = (bookings: Booking[]) => {
   const today = new Date();
 
   return bookings.filter((booking) =>
-    isSameDay(new Date(booking.checkInDate), today),
+    isSameDay(new Date(booking.data.checkInDate), today),
   );
 };
 
@@ -55,7 +55,7 @@ export const getComingWeek = (bookings: Booking[]) => {
   weekFromNow.setDate(today.getDate() + 7)
 
   return bookings.filter((booking) => {
-    const checkIn = new Date(booking.checkInDate)
+    const checkIn = new Date(booking.data.checkInDate)
     return checkIn >= today && checkIn <= weekFromNow
   });
 };
