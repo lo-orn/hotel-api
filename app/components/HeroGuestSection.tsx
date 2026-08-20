@@ -29,7 +29,7 @@ export default function HeroGuestSection({
 
   return (
     <div className="grid grid-cols-3 gap-2 m-4">
-      <div className="col-span-2 bg-primary p-8">
+      <div className="col-span-2 bg-stone p-8">
         <div className="flex items-center justify-between">
           <h2 className="font-display text-lg">Incheckningar idag</h2>
           <span className="text-xs uppercase tracking-wide text-charcoal/60">
@@ -56,8 +56,8 @@ export default function HeroGuestSection({
         </div>
       </div>
 
-      <div className="col-span-1 flex flex-col gap-6 bg-primary">
-        <div className="bg-secondary p-8">
+      <div className="col-span-1 flex flex-col gap-6 bg-stone">
+        <div className="bg-stone p-8">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-lg">Kommande vecka</h2>
             <a href="#" className="text-xs underline">

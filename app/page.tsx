@@ -12,11 +12,11 @@ const LADAN_HOTEL_ID = "16df1534-f9d7-4300-aa5e-e9b50b9b9516";
 export default async function Home() {
   let bookings: Booking[] = [];
   let customers: Customer[] = [];
-  let hotels: Hotel[] = []
+  let hotel: Hotel[] = []
   
 
   try {
-    hotels = await seedHotel();
+    hotel = await seedHotel();
     bookings = await getBookings();
     customers = await getCustomers();
 
