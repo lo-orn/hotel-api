@@ -12,19 +12,36 @@ import { LADAN_HOTEL_ID } from "./services/apiConfig";
 export default async function Home() {
   let bookings: Booking[] = [];
   let customers: Customer[] = [];
-  let hotel: Hotel[] = []
-  
+  let hotels: Hotel[] = [];
+
+  // try {
+  //   hotels = await seedHotel();
+  //   bookings = await getBookings();
+  //   customers = await getCustomers();
+
+  // } catch (error) {
+  //   console.error(error);
+  // }
 
   try {
     hotel = await seedHotel()
     bookings = await getBookings();
     customers = await getCustomers();
 
+    if (!Array.isArray(bookings)) {
+      bookings = [];
+    }
 
+    if (!Array.isArray(customers)) {
+      customers = [];
+    }
+
+    if (!Array.isArray(hotels)) {
+      hotels = [];
+    }
   } catch (error) {
     console.error(error);
   }
-
 
   return (
     <>

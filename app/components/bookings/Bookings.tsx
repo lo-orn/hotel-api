@@ -1,4 +1,4 @@
-import { Booking } from "@/app/models/Booking";
+import { Booking, BookingDataForm } from "@/app/models/Booking";
 import { ShowBooking } from "./ShowBooking";
 import { Customer } from "@/app/models/Customer";
 import { LADAN_HOTEL_ID } from "@/app/services/apiConfig";
@@ -6,13 +6,14 @@ import { LADAN_HOTEL_ID } from "@/app/services/apiConfig";
 type BookingsProps = {
   allBookings: Booking[];
   allCustomers: Customer[];
-  hotelId: string;
+  removeBooking: (id: string) => void;
+  saveBooking: (id: string, changedBooking: BookingDataForm) => void;
 };
 
 export const Bookings = ({ allBookings, allCustomers, hotelId }: BookingsProps) => {
 
   const hotelBookings = allBookings.filter((booking) => booking.data.hotelId === hotelId)
-  console.log("Vårt id:", LADAN_HOTEL_ID);
+  
   return (
     <>
       <section>
@@ -35,6 +36,8 @@ export const Bookings = ({ allBookings, allCustomers, hotelId }: BookingsProps) 
                 oneBooking={oneBooking}
                 rowNumber={index + 1}
                 allCustomers={allCustomers}
+                removeBooking={removeBooking}
+                saveBooking={saveBooking}
               />
             ))}
           </tbody>

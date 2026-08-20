@@ -10,9 +10,16 @@ export const seedHotel = async (): Promise<Hotel[]> => {
   let hotels: Hotel[] = await getHotels();
   console.log(hotels)
 
-  const ladanExists = hotels.some((h) => h.data.name === "Ladan");
+  if (!Array.isArray(hotels)) {
+    return [];
+  }
+
+  const ladanExists = hotels.some((oneHotel) => {
+    return oneHotel.data.name === "Ladan";
+  });
+
   if (!ladanExists) {
-    const result = await createHotel({
+    await createHotel({
       name: "Ladan",
       address: "Kvarnbacken 7, 134 40 GustavsBerg",
     });

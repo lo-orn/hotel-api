@@ -29,7 +29,7 @@ export const deleteBooking = async (id: string) => {
 
 export const updateBooking = async (
   id: string,
-  changeBooking: BookingDataForm,
+  changedBooking: BookingDataForm,
 ) => {
   const response = await fetch(`${API_URL}/bookings/${id}`, {
     method: "PUT",
@@ -37,7 +37,7 @@ export const updateBooking = async (
       "Content-Type": "application/json",
       "X-API-Key": API_KEY,
     },
-    body: JSON.stringify(changeBooking),
+    body: JSON.stringify(changedBooking),
   });
 
   const data = await response.json();
