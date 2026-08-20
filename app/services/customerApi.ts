@@ -62,3 +62,22 @@ if (!createResponse.ok) {
     throw new Error("Could not update customer ID");
   }
 };
+
+export const updateCustomer = async (id: string, customer: Partial<CustomerDataForm>) => {
+  if (!API_KEY) {
+    throw new Error("API key is missing");
+  }
+
+  const response = await fetch(`${API_URL}/customers/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "X-API-Key": API_KEY,
+    },
+    body: JSON.stringify(customer),
+  });
+
+  if (!response.ok) {
+    throw new Error("Could not update customer");
+  }
+};
