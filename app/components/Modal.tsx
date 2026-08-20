@@ -18,7 +18,11 @@ export default function Modal({ title, onClose, children }: ModalProps) {
       >
         <div className="flex items-center justify-between border-b border-charcoal/20 pb-6">
           <h2 className="text-xs uppercase tracking-widest">{title}</h2>
-          <button className="w-11 h-11 flex items-center justify-center" onClick={onClose} aria-label="stäng ruta">
+          <button
+            className="w-11 h-11 flex items-center justify-center cursor-pointer"
+            onClick={onClose}
+            aria-label="stäng ruta"
+          >
             ✕
           </button>
         </div>

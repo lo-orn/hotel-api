@@ -12,7 +12,7 @@ export function ActionButton({label, onClick, variant ="black"}: ActionButtonPro
     const variantStyles = variant === "black" ? "bg-black text-cream" : "bg-white text-black border border-black"
 
     return (
-        <button onClick={onClick} className={`${baseBtnStyle} ${variantStyles}`}>
+        <button onClick={onClick} className={`${baseBtnStyle} ${variantStyles} cursor-pointer`}>
             {label}
         </button>
     )
