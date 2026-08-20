@@ -1,16 +1,21 @@
-import { Booking } from "@/app/models/Booking";
+import { Booking, BookingDataForm } from "@/app/models/Booking";
 import { Customer } from "@/app/models/Customer";
+import { useState } from "react";
 
 type ShowBookingProps = {
   oneBooking: Booking;
   rowNumber: number;
   allCustomers: Customer[];
+  removeBooking: (id: string) => void;
+  saveBooking: (id: string, changedBooking: BookingDataForm) => void;
 };
 
 export const ShowBooking = ({
   oneBooking,
   rowNumber,
   allCustomers,
+  removeBooking,
+  saveBooking,
 }: ShowBookingProps) => {
   const matchingCustomers = allCustomers.filter((oneCustomer) => {
     return oneCustomer.id === oneBooking.data.customerId;
@@ -19,8 +24,7 @@ export const ShowBooking = ({
   const matchingCustomer = matchingCustomers[0];
 
   //let customerName = oneBooking.data.customerId;
-  let customerName = "Okänd gäst!"
-  
+  let customerName = "Okänd gäst!";
 
   if (matchingCustomer) {
     customerName = `${matchingCustomer.data.firstName} ${matchingCustomer.data.lastName}`;
@@ -35,7 +39,7 @@ export const ShowBooking = ({
         <td>{oneBooking.data.guests}</td>
         <td>
           <a href="#">Ändra</a>
-          <a href="#">Avboka</a>
+          <button type="button" onClick={() => { removeBooking(oneBooking.id); }}>Avboka</button>
         </td>
       </tr>
     </>

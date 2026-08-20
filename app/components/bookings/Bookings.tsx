@@ -1,13 +1,15 @@
-import { Booking } from "@/app/models/Booking";
+import { Booking, BookingDataForm } from "@/app/models/Booking";
 import { ShowBooking } from "./ShowBooking";
 import { Customer } from "@/app/models/Customer";
 
 type BookingsProps = {
   allBookings: Booking[];
   allCustomers: Customer[];
+  removeBooking: (id: string) => void;
+  saveBooking: (id: string, changedBooking: BookingDataForm) => void;
 };
 
-export const Bookings = ({ allBookings, allCustomers }: BookingsProps) => {
+export const Bookings = ({ allBookings, allCustomers, removeBooking, saveBooking }: BookingsProps) => {
   return (
     <>
       <section>
@@ -30,6 +32,8 @@ export const Bookings = ({ allBookings, allCustomers }: BookingsProps) => {
                 oneBooking={oneBooking}
                 rowNumber={index + 1}
                 allCustomers={allCustomers}
+                removeBooking={removeBooking}
+                saveBooking={saveBooking}
               />
             ))}
           </tbody>

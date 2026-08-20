@@ -12,18 +12,36 @@ const LADAN_HOTEL_ID = "16df1534-f9d7-4300-aa5e-e9b50b9b9516";
 export default async function Home() {
   let bookings: Booking[] = [];
   let customers: Customer[] = [];
-  let hotels: Hotel[] = []
-  
+  let hotels: Hotel[] = [];
+
+  // try {
+  //   hotels = await seedHotel();
+  //   bookings = await getBookings();
+  //   customers = await getCustomers();
+
+  // } catch (error) {
+  //   console.error(error);
+  // }
 
   try {
     hotels = await seedHotel();
     bookings = await getBookings();
     customers = await getCustomers();
 
+    if (!Array.isArray(bookings)) {
+      bookings = [];
+    }
+
+    if (!Array.isArray(customers)) {
+      customers = [];
+    }
+
+    if (!Array.isArray(hotels)) {
+      hotels = [];
+    }
   } catch (error) {
     console.error(error);
   }
-
 
   return (
     <>
