@@ -81,3 +81,20 @@ export const updateCustomer = async (id: string, customer: Partial<CustomerDataF
     throw new Error("Could not update customer");
   }
 };
+
+export const deleteCustomer = async (id: string) => {
+  if (!API_KEY) {
+    throw new Error("API key is missing");
+  }
+
+  const response = await fetch(`${API_URL}/customers/${id}`, {
+    method: "DELETE",
+    headers: {
+      "X-API-Key": API_KEY,
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Could not delete customer");
+  }
+};
