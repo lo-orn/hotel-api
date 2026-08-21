@@ -1,6 +1,8 @@
+import { registerCustomerAction } from "@/app/actions/customerActions";
+
 export const GuestForm = () => {
     return (
-        <form className="mt-8 space-y-8">
+        <form action={registerCustomerAction} className="mt-8 space-y-8">
             <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
                     <label 
