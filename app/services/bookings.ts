@@ -12,7 +12,6 @@ export const getBookings = async () => {
   return data;
 };
 
-
 export const createBooking = async (newBooking: BookingDataForm) => {
   const response = await fetch(`${API_URL}/bookings`, {
     method: "POST",

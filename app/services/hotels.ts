@@ -12,15 +12,39 @@ export const getHotels = async () => {
   return data;
 };
 
-
 export const createHotel = async (data: HotelData) => {
-  const response = await fetch(`${API_URL}/hotels`, {
+  const headers = {
+    "Content-Type": "application/json",
+    "X-API-Key": API_KEY,
+  };
+
+  const createResponse = await fetch(`${API_URL}/hotels`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "X-API-Key": API_KEY,
-    },
-    body: JSON.stringify(data),
+    headers,
+    body: JSON.stringify({
+      name: data.name,
+      address: data.address,
+      id: 0,
+    }),
   });
-  return response.json();
+
+  if (!createResponse.ok) {
+    throw new Error("Could not create hotel");
+  }
+
+  const createdHotel = await createResponse.json();
+
+  const patchResponse = await fetch(`${API_URL}/hotels/${createdHotel.id}`, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({
+      id: createdHotel.id,
+    }),
+  });
+
+  if (!patchResponse.ok) {
+    throw new Error("Could not update hotel ID");
+  }
+
+  return createdHotel;
 };

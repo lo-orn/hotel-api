@@ -8,6 +8,7 @@ export const seedHotel = async (): Promise<Hotel[]> => {
     return await getHotels();
   }
   let hotels: Hotel[] = await getHotels();
+  console.log(hotels)
 
   const ladanExists = hotels.some((h) => h.data.name === "Ladan");
   if (!ladanExists) {
