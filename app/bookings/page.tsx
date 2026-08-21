@@ -1,7 +1,8 @@
 import { Booking } from "../models/Booking";
-import { getBookings, getCustomers } from "../services/hotelApi";
 import { Bookings } from "../components/bookings/Bookings";
 import { Customer } from "../models/Customer";
+import { getBookings } from "../services/bookings";
+import { getCustomers } from "../services/customerApi";
 
 export default async function BookingsPage() {
   const allBookings: Booking[] = await getBookings();
