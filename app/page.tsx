@@ -1,11 +1,12 @@
 import { Booking } from "./models/Booking";
-import { getBookings, getCustomers } from "./services/hotelApi";
 import { HeroSectionMain } from "./components/HeroSectionMain";
 import QuickActionSection from "./components/QuickActionSection";
 import HeroGuestSection from "./components/HeroGuestSection";
 import { Customer } from "./models/Customer";
 import { Hotel } from "./models/Hotel";
 import { seedHotel } from "./lib/seedHotel";
+import { getBookings } from "./services/bookings";
+import { getCustomers } from "./services/customerApi";
 
 const LADAN_HOTEL_ID = "16df1534-f9d7-4300-aa5e-e9b50b9b9516";
 
