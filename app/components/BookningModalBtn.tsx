@@ -2,8 +2,17 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import { ActionButton } from "./buttons/ActionButton";
+import { Customer } from "../models/Customer";
+import { Booking } from "../models/Booking";
+import BookingForm from "./BookingForm";
 
-export default function BookingModalBtn() {
+type BookingModalBtnProps = {
+  customers: Customer[];
+  bookings: Booking[];
+  hotelId: string;
+}
+
+export default function BookingModalBtn({customers, bookings, hotelId}: BookingModalBtnProps) {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
@@ -11,7 +20,7 @@ export default function BookingModalBtn() {
 
       {modalOpen && (
         <Modal title="Bokning" onClose={() => setModalOpen(false)}>
-          <p>test</p>
+          <BookingForm customers={customers} bookings={bookings} hotelId={hotelId}/>
         </Modal>
       )}
     </>

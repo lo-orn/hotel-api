@@ -32,7 +32,7 @@ export default async function Home() {
           <HeroSectionMain bookings={bookings} hotelId={LADAN_HOTEL_ID} />
         </section>
         <section>
-          <QuickActionSection />
+          <QuickActionSection customers={customers} bookings={bookings} hotelId={LADAN_HOTEL_ID} />
         </section>
         <HeroGuestSection
           bookings={bookings}

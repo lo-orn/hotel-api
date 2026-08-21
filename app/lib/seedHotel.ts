@@ -1,7 +1,12 @@
 import { Hotel } from "../models/Hotel";
 import { createHotel, getHotels } from "../services/hotels";
 
+let hasSeeded = false;
+
 export const seedHotel = async (): Promise<Hotel[]> => {
+  if(hasSeeded) {
+    return await getHotels();
+  }
   let hotels: Hotel[] = await getHotels();
 
   const ladanExists = hotels.some((h) => h.data.name === "Ladan");
@@ -16,6 +21,6 @@ export const seedHotel = async (): Promise<Hotel[]> => {
   } else {
   console.log("Hotellet med namn Ladan finns redan, hoppar över seed");
 }
-
+  hasSeeded = true
   return hotels;
 };

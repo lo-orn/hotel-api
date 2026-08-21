@@ -1,11 +1,21 @@
+import { Booking } from "../models/Booking";
+import { Customer } from "../models/Customer";
 import BookingModalBtn from "./BookningModalBtn";
 import GuestModalBtn from "./GuestModalBtn";
 
-export default function QuickActionSection() {
+  type QuickActionSectionProps = {
+  customers: Customer[];
+  bookings: Booking[];
+  hotelId: string;
+};
+
+export default function QuickActionSection({customers, bookings, hotelId}: QuickActionSectionProps) {
+
+
   return (
     <div className="grid grid-cols-2 h-96 gap-2 m-4">
       <div className="bg-stone p-10 flex items-center justify-center gap-4">
-        <BookingModalBtn />
+        <BookingModalBtn customers={customers} bookings={bookings} hotelId={hotelId}  />
         <GuestModalBtn />
       </div>
 
