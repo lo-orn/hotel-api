@@ -1,8 +1,19 @@
+"use client";
+
 import { registerCustomerAction } from "@/app/actions/customerActions";
 
-export const GuestForm = () => {
+type GuestFormProps = {
+    onSuccess: () => void;
+};
+
+export const GuestForm = ({ onSuccess }: GuestFormProps) => {
+    const handleSubmit = async (formData: FormData) => {
+        await registerCustomerAction(formData);
+        onSuccess();
+    };
+
     return (
-        <form action={registerCustomerAction} className="mt-8 space-y-8">
+        <form action={handleSubmit} className="mt-8 space-y-8">
             <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">
                     <label 
