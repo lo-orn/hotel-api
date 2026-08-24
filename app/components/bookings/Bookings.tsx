@@ -7,6 +7,7 @@ type BookingsProps = {
   allCustomers: Customer[];
   removeBooking: (id: string) => void;
   saveBooking: (id: string, changedBooking: BookingDataForm) => void;
+  hotelId: string
 };
 
 export const Bookings = ({ allBookings, allCustomers, removeBooking, saveBooking, hotelId }: BookingsProps) => {
