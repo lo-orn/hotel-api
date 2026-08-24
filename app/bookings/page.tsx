@@ -2,9 +2,9 @@ import { BookingPageContent } from "../components/bookings/BookingPageContent";
 import { seedBooking } from "../lib/seedBooking";
 import { Booking } from "../models/Booking";
 import { getBookings, getCustomers } from "../services/hotelApi";
-import { Bookings } from "../components/bookings/Bookings";
 import { Customer } from "../models/Customer";
-import { getCustomers } from "../services/hotelApi";
+import { getCustomers } from "../services/customerApi";
+import { LADAN_HOTEL_ID } from "../services/apiConfig";
 
 export default async function BookingsPage() {
   let allCustomers: Customer[] = await getCustomers();
@@ -13,13 +13,10 @@ export default async function BookingsPage() {
     allCustomers = [];
   }
 
-  const ladanHotelId = "59fb7db7-bf26-42f4-8bc2-f17c76186cbf";
-
-  const allBookings: Booking[] = await seedBooking(ladanHotelId, allCustomers);
-
-  const ladanBookings = allBookings.filter((oneBooking) => {
-    return oneBooking.data.hotelId === ladanHotelId;
-  });
+  const allBookings: Booking[] = await seedBooking(
+    LADAN_HOTEL_ID,
+    allCustomers,
+  );
 
   return (
     <>
@@ -30,7 +27,12 @@ export default async function BookingsPage() {
         </section>
 
         <button>ALLA</button>
-        <Bookings allBookings={allBookings} allCustomers={allCustomers} />
+
+        <BookingPageContent
+          allBookings={allBookings}
+          allCustomers={allCustomers}
+          hotelId={LADAN_HOTEL_ID}
+        />
       </main>
     </>
   );

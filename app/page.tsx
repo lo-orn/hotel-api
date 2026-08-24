@@ -24,7 +24,7 @@ export default async function Home() {
   // }
 
   try {
-    hotel = await seedHotel()
+    hotel = await seedHotel();
     bookings = await getBookings();
     customers = await getCustomers();
 
@@ -36,8 +36,8 @@ export default async function Home() {
       customers = [];
     }
 
-    if (!Array.isArray(hotels)) {
-      hotels = [];
+    if (!Array.isArray(hotel)) {
+      hotel = [];
     }
   } catch (error) {
     console.error(error);
@@ -50,7 +50,11 @@ export default async function Home() {
           <HeroSectionMain bookings={bookings} hotelId={LADAN_HOTEL_ID} />
         </section>
         <section>
-          <QuickActionSection customers={customers} bookings={bookings} hotelId={LADAN_HOTEL_ID} />
+          <QuickActionSection
+            customers={customers}
+            bookings={bookings}
+            hotelId={LADAN_HOTEL_ID}
+          />
         </section>
         <HeroGuestSection
           bookings={bookings}

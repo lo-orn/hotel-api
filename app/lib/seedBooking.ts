@@ -1,7 +1,6 @@
 import { Booking } from "../models/Booking";
 import { Customer } from "../models/Customer";
-import { createBooking } from "../services/bookingApi";
-import { getBookings } from "../services/hotelApi";
+import { createBooking, getBookings } from "../services/bookings";
 
 export const seedBooking = async (
   hotelId: string,

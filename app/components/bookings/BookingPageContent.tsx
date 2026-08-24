@@ -3,7 +3,7 @@
 import { Booking, BookingDataForm } from "@/app/models/Booking";
 import { Customer } from "@/app/models/Customer";
 import { Bookings } from "./Bookings";
-import { deleteBooking, updateBooking } from "@/app/services/bookingApi";
+import { deleteBooking, updateBooking } from "@/app/services/bookings";
 
 type BookingPageProps = {
   allBookings: Booking[];
@@ -11,11 +11,7 @@ type BookingPageProps = {
   hotelId: string;
 };
 
-export const BookingPageContent = ({
-  allBookings,
-  allCustomers,
-  hotelId,
-}: BookingPageProps) => {
+export const BookingPageContent = ({ allBookings, allCustomers, hotelId }: BookingPageProps) => {
   const removeBooking = async (id: string) => {
     await deleteBooking(id);
     window.location.reload();
@@ -37,6 +33,7 @@ export const BookingPageContent = ({
       allCustomers={allCustomers}
       removeBooking={removeBooking}
       saveBooking={saveBooking}
+      hotelId={hotelId}
     />
   );
 };

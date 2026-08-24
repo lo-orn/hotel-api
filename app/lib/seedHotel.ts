@@ -23,7 +23,7 @@ export const seedHotel = async (): Promise<Hotel[]> => {
       name: "Ladan",
       address: "Kvarnbacken 7, 134 40 GustavsBerg",
     });
-    console.log(result);
+
     hotels = await getHotels();
   
   } else {
