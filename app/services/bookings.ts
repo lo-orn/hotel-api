@@ -28,7 +28,7 @@ export const createBooking = async (newBooking: BookingDataForm) => {
 
 export const deleteBooking = async (id: string) => {
   const response = await fetch(`${API_URL}/bookings/${id}`, {
-    method: "Delete",
+    method: "DELETE",
     headers: {
       "X-API-KEY": API_KEY,
     },
@@ -41,7 +41,7 @@ export const updateBooking = async (
   changeBooking: BookingDataForm,
 ) => {
   const response = await fetch(`${API_URL}/bookings/${id}`, {
-    method: "Put",
+    method: "PUT",
     headers: {
       "content-type": "application/json",
       "X-API-KEY": API_KEY,
@@ -49,6 +49,5 @@ export const updateBooking = async (
     body: JSON.stringify(changeBooking),
   });
 
-  const data = await response.json();
-  return data;
+  return response;
 };
