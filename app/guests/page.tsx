@@ -1,6 +1,5 @@
 import { Customers } from "../components/customers/Customers";
 import GuestModalBtn from "../components/GuestModalBtn";
-import { getBookings } from "../services/bookings";
 import { getCustomers } from "../services/customerApi";
 
 export default async function GuestsPage() {
@@ -15,7 +14,6 @@ export default async function GuestsPage() {
                 </div>
 
               <GuestModalBtn/>
-                <GuestModalBtn />
             </div>
 
             <Customers customers={customers} />
