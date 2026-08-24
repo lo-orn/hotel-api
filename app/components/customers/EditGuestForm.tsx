@@ -1,16 +1,24 @@
 "use client";
 
+import { updateCustomerAction } from "@/app/actions/customerActions";
 import { Customer } from "@/app/models/Customer";
 
 type EditGuestFormProps = {
     customer: Customer;
+    onSuccess: () => void;
 };
 
-export const EditGuestForm = ({ customer }: EditGuestFormProps) => {
+export const EditGuestForm = ({ customer, onSuccess }: EditGuestFormProps) => {
+    const handleSubmit = async (formData: FormData) => {
+        await updateCustomerAction(customer.id, formData);
+
+        onSuccess();
+    };
+
     return (
         <form
+            action={handleSubmit}
             className="mt-8 space-y-8"
-            onSubmit={(e) => e.preventDefault()}
         >
             <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2">
                 <div className="flex flex-col gap-2">

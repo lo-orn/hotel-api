@@ -27,7 +27,10 @@ export const EditGuestModalBtn = ({ customer}: EditGuestModalBtnProps) => {
                     title="Redigera gäst"
                     onClose={() => setModalOpen(false)}
                 >
-                    <EditGuestForm customer={customer} />
+                    <EditGuestForm 
+                        customer={customer}
+                        onSuccess={() => setModalOpen(false)}
+                    />
                 </Modal>
             )}
         </>
