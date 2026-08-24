@@ -1,7 +1,6 @@
 import { BookingPageContent } from "../components/bookings/BookingPageContent";
 import { seedBooking } from "../lib/seedBooking";
 import { Booking } from "../models/Booking";
-import { getBookings, getCustomers } from "../services/hotelApi";
 import { Customer } from "../models/Customer";
 import { getCustomers } from "../services/customerApi";
 import { LADAN_HOTEL_ID } from "../services/apiConfig";
