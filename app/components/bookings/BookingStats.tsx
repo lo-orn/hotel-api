@@ -1,11 +1,7 @@
-import {
-  countAvailableRooms,
-  countCheckedInNow,
-  countCheckInsToday,
-  countCheckOutsToday,
-} from "../lib/stats";
-import { Booking } from "../models/Booking";
-import { StatCard } from "./StatCard";
+import { Booking } from "@/app/models/Booking";
+import { StatCard } from "../StatCard";
+import { countAvailableRooms, countCheckedInNow, countCheckInsToday, countCheckOutsToday } from "@/app/lib/stats";
+
 
 type BookingStatsProps = {
   bookings: Booking[];
