@@ -7,7 +7,6 @@ const links = [
     { href: "/", label: "Idag" },
     { href: "/bookings", label: "Bokningar" },
     { href: "/guests", label: "Gäster" },
-    { href: "/bookings/new", label: "Ny bokning" },
 ];
 
 export default function Navigation() {
