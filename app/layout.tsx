@@ -3,6 +3,7 @@ import "./globals.css";
 import Navigation from "./components/Navigation";
 
 import { Bricolage_Grotesque, Figtree } from "next/font/google";
+import Header from "./components/Header";
 
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${bricolage.variable} ${figtree.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-primary">
-        <Navigation />
+        <Header />
         {children}
       </body>
     </html>

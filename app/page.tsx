@@ -20,6 +20,7 @@ export default async function Home() {
     bookings = await getBookings();
     customers = await getCustomers();
 
+
   } catch (error) {
     console.error(error);
   }
