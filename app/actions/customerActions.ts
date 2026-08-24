@@ -1,7 +1,7 @@
 "use server";
 
 import { CustomerDataForm } from "../models/Customer";
-import { createCustomer, updateCustomer } from "../services/customerApi";
+import { createCustomer, deleteCustomer, updateCustomer } from "../services/customerApi";
 import { revalidatePath } from "next/cache";
 
 export const registerCustomerAction = async (formData: FormData) => {
@@ -22,7 +22,7 @@ export const registerCustomerAction = async (formData: FormData) => {
     await createCustomer(customer);
 
     revalidatePath("/guests");
-}
+};
 
 export const updateCustomerAction = async (id: string, formData: FormData) => {
     const firstName = formData.get("firstName") as string;
@@ -42,4 +42,10 @@ export const updateCustomerAction = async (id: string, formData: FormData) => {
     await updateCustomer(id, customer);
 
     revalidatePath("/guests");
-}
+};
+
+export const deleteCustomerAction = async (id: string) => {
+    await deleteCustomer(id);
+
+    revalidatePath("/guests");
+};
