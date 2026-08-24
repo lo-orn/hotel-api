@@ -3,6 +3,7 @@
 import { Customer } from "@/app/models/Customer";
 import { useState } from "react";
 import Modal from "../Modal";
+import { EditGuestForm } from "./EditGuestForm";
 
 type EditGuestModalBtnProps = {
     customer: Customer;
@@ -26,10 +27,7 @@ export const EditGuestModalBtn = ({ customer}: EditGuestModalBtnProps) => {
                     title="Redigera gäst"
                     onClose={() => setModalOpen(false)}
                 >
-                    <p>
-                        {customer.data.firstName} {customer.data.lastName}
-                    </p>
-                    <p>{customer.data.email}</p>
+                    <EditGuestForm customer={customer} />
                 </Modal>
             )}
         </>
