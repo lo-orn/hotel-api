@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Modal from "./Modal";
-import { ActionButton } from "./buttons/ActionButton";
-import { GuestForm } from "./customers/GuestForm";
+import Modal from "../Modal";
+import { ActionButton } from "../buttons/ActionButton";
+import { GuestForm } from "./GuestForm";
 
 export default function GuestModalBtn() {
   const [modalOpen, setModalOpen] = useState(false);

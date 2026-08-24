@@ -1,7 +1,8 @@
 import { Booking } from "../models/Booking";
 import { Customer } from "../models/Customer";
-import BookingModalBtn from "./BookningModalBtn";
-import GuestModalBtn from "./GuestModalBtn";
+import BookingModalBtn from "./bookings/BookningModalBtn";
+
+import GuestModalBtn from "./customers/GuestModalBtn";
 
   type QuickActionSectionProps = {
   customers: Customer[];

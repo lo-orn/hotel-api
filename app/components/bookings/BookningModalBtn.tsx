@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import { ActionButton } from "./buttons/ActionButton";
 import { Customer } from "../models/Customer";
 import { Booking } from "../models/Booking";
-import BookingForm from "./BookingForm";
+import BookingForm from "./bookings/BookingForm";
 
 type BookingModalBtnProps = {
   customers: Customer[];

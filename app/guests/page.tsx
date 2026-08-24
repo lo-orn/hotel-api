@@ -1,5 +1,5 @@
 import { Customers } from "../components/customers/Customers";
-import GuestModalBtn from "../components/GuestModalBtn";
+import GuestModalBtn from "../components/customers/GuestModalBtn";
 import { getCustomers } from "../services/customerApi";
 
 export default async function GuestsPage() {

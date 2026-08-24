@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Customer } from "../models/Customer";
-import { createBooking } from "../services/bookings";
+import { Customer } from "../../models/Customer";
+import { createBooking } from "../../services/bookings";
 import {
   isFullyBooked,
   isInvalidDateRange,
   isPastDate,
-} from "../lib/validation";
-import { Booking } from "../models/Booking";
+} from "../../lib/validation";
+import { Booking } from "../../models/Booking";
 import {useRouter} from "next/navigation";
 
 type BookingFormProps = {
