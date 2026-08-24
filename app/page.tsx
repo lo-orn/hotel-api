@@ -12,7 +12,7 @@ import { LADAN_HOTEL_ID } from "./services/apiConfig";
 export default async function Home() {
   let bookings: Booking[] = [];
   let customers: Customer[] = [];
-  let hotels: Hotel[] = [];
+  let hotel: Hotel[] = [];
 
   // try {
   //   hotels = await seedHotel();

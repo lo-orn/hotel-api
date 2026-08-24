@@ -1,10 +1,10 @@
 "use client";
+import { Booking } from "@/app/models/Booking";
+import { Customer } from "@/app/models/Customer";
 import { useState } from "react";
-import Modal from "./Modal";
-import { ActionButton } from "./buttons/ActionButton";
-import { Customer } from "../models/Customer";
-import { Booking } from "../models/Booking";
-import BookingForm from "./bookings/BookingForm";
+import { ActionButton } from "../buttons/ActionButton";
+import Modal from "../Modal";
+import BookingForm from "./BookingForm";
 
 type BookingModalBtnProps = {
   customers: Customer[];
