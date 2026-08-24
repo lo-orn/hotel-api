@@ -1,8 +1,12 @@
 import { Customers } from "../components/customers/Customers";
+import { LADAN_HOTEL_ID } from "../services/apiConfig";
+import { getBookings } from "../services/bookings";
 import { getCustomers } from "../services/customerApi";
 
 export default async function GuestsPage() {
     const customers = await getCustomers();
+    const bookings = await getBookings();
+    
 
     return (
         <main className="min-h-screen bg-[#F0EBE3] px-6 py-10 md:px-10 lg:px-14">
@@ -20,7 +24,7 @@ export default async function GuestsPage() {
                 </button>
             </div>
 
-            <Customers customers={customers} />
+            <Customers customers={customers} bookings={bookings} hotelId={LADAN_HOTEL_ID} />
         </main>
     );
 }

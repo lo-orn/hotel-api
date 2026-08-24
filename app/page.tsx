@@ -7,8 +7,7 @@ import { Hotel } from "./models/Hotel";
 import { seedHotel } from "./lib/seedHotel";
 import { getBookings } from "./services/bookings";
 import { getCustomers } from "./services/customerApi";
-
-const LADAN_HOTEL_ID = "16df1534-f9d7-4300-aa5e-e9b50b9b9516";
+import { LADAN_HOTEL_ID } from "./services/apiConfig";
 
 export default async function Home() {
   let bookings: Booking[] = [];
@@ -17,7 +16,7 @@ export default async function Home() {
   
 
   try {
-    hotel = await seedHotel();
+    hotel = await seedHotel()
     bookings = await getBookings();
     customers = await getCustomers();
 
