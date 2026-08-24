@@ -21,29 +21,27 @@
 import { Hotel } from "../models/Hotel";
 import { createHotel, getHotels } from "../services/hotels";
 
+let hasSeeded = false;
+
 export const seedHotel = async (): Promise<Hotel[]> => {
-  let hotels: Hotel[] = await getHotels();
-
-  if (!Array.isArray(hotels)) {
-    return [];
+  if(hasSeeded) {
+    return await getHotels();
   }
+  let hotels: Hotel[] = await getHotels();
+  console.log(hotels)
 
-  const ladanExists = hotels.some((oneHotel) => {
-    return oneHotel.data.name === "Ladan";
-  });
-
+  const ladanExists = hotels.some((h) => h.data.name === "Ladan");
   if (!ladanExists) {
     await createHotel({
       name: "Ladan",
       address: "Kvarnbacken 7, 134 40 GustavsBerg",
     });
-
+    console.log(result);
     hotels = await getHotels();
-
-    if (!Array.isArray(hotels)) {
-      return [];
-    }
-  }
-
+  
+  } else {
+  console.log("Hotellet med namn Ladan finns redan, hoppar över seed");
+}
+  hasSeeded = true
   return hotels;
 };

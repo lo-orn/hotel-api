@@ -1,8 +1,11 @@
 import { BookingPageContent } from "../components/bookings/BookingPageContent";
 import { seedBooking } from "../lib/seedBooking";
 import { Booking } from "../models/Booking";
+import { Bookings } from "../components/bookings/Bookings";
 import { Customer } from "../models/Customer";
-import { getCustomers } from "../services/hotelApi";
+import { getBookings } from "../services/bookings";
+import { getCustomers } from "../services/customerApi";
+import { LADAN_HOTEL_ID } from "../services/apiConfig";
 
 export default async function BookingsPage() {
   let allCustomers: Customer[] = await getCustomers();
@@ -28,12 +31,7 @@ export default async function BookingsPage() {
         </section>
 
         <button>ALLA</button>
-
-        <BookingPageContent
-          allBookings={ladanBookings}
-          allCustomers={allCustomers}
-          hotelId={ladanHotelId}
-        />
+        <Bookings allBookings={allBookings} allCustomers={allCustomers} hotelId={LADAN_HOTEL_ID} />
       </main>
     </>
   );

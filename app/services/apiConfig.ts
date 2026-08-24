@@ -1,2 +1,3 @@
-export const API_URL = "https://aspcode.net/api/db/HotelAPI";
-export const API_KEY ="jsonsrv_13315a4a470dd57817cb978cfe887090e4268517b1d4e84ca99223d51c1d32f8";
+export const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+export const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
+export const LADAN_HOTEL_ID = "4d684528-e43f-43ce-8da3-ee67176f8c13";
