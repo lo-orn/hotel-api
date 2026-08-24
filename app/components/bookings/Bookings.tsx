@@ -1,7 +1,6 @@
 import { Booking, BookingDataForm } from "@/app/models/Booking";
 import { ShowBooking } from "./ShowBooking";
 import { Customer } from "@/app/models/Customer";
-import { LADAN_HOTEL_ID } from "@/app/services/apiConfig";
 
 type BookingsProps = {
   allBookings: Booking[];
@@ -10,7 +9,7 @@ type BookingsProps = {
   saveBooking: (id: string, changedBooking: BookingDataForm) => void;
 };
 
-export const Bookings = ({ allBookings, allCustomers, hotelId }: BookingsProps) => {
+export const Bookings = ({ allBookings, allCustomers, removeBooking, saveBooking, hotelId }: BookingsProps) => {
 
   const hotelBookings = allBookings.filter((booking) => booking.data.hotelId === hotelId)
   

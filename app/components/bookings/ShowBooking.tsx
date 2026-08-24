@@ -1,3 +1,5 @@
+"use client";
+
 import { Booking, BookingDataForm } from "@/app/models/Booking";
 import { Customer } from "@/app/models/Customer";
 
