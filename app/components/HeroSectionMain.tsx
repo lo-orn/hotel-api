@@ -1,5 +1,5 @@
 import { Booking } from "../models/Booking";
-import { BookingStats } from "./BookingStats";
+import { BookingStats } from "./bookings/BookingStats";
 
 type HeroSectionProps = {
   bookings: Booking[];
