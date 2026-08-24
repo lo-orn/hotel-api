@@ -1,5 +1,6 @@
 import { LADAN_HOTEL_NAME } from "../services/apiConfig";
 import Navigation from "./Navigation";
+import WeatherDisplay from "./weather/WeatherDisplay";
 
 export default function Header() {
   return (
@@ -13,7 +14,11 @@ export default function Header() {
         <p className="text-xs uppercase tracking-widest text-charcoal">
           bokningssystem
         </p>
-        <Navigation />
+      </div>
+      <Navigation />
+
+      <div className="ml-auto">
+        <WeatherDisplay />
       </div>
     </header>
   );
