@@ -12,7 +12,7 @@ export default function GuestModalBtn() {
 
       {modalOpen && (
         <Modal title="Gäst" onClose={() => setModalOpen(false)}>
-         <GuestForm onSuccess={() => setModalOpen(false)}/>
+          <p>test</p>
         </Modal>
       )}
     </>
