@@ -5,6 +5,7 @@ import { Customer } from "@/app/models/Customer";
 type BookingsProps = {
   allBookings: Booking[];
   allCustomers: Customer[];
+  hotelId: string;
   removeBooking: (id: string) => void;
   saveBooking: (id: string, changedBooking: BookingDataForm) => void;
 };
