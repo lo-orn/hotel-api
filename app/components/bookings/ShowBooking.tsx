@@ -116,7 +116,7 @@ export const ShowBooking = ({
               saveBooking(oneBooking.id, changedBooking);
             }}
           >
-            spara
+            Spara
           </button>
 
           <button type="button" onClick={() => setIsEditing(false)}>
