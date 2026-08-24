@@ -9,23 +9,33 @@ import {
   isPastDate,
 } from "../lib/validation";
 import { Booking } from "../models/Booking";
+import {useRouter} from "next/navigation";
 
 type BookingFormProps = {
   customers: Customer[];
   bookings: Booking[];
   hotelId: string;
+   onSuccess: () => void;
 };
 
 export default function BookingForm({
   customers,
   bookings,
   hotelId,
+  onSuccess
 }: BookingFormProps) {
+
+  const router = useRouter();
+
   const [customerId, setCustomerId] = useState("");
   const [guests, setGuests] = useState(1);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const [error, setError] = useState("");
+
+  const hotelBookings = bookings.filter(
+  (booking) => booking.data.hotelId === hotelId,
+);
 
   const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
@@ -38,10 +48,11 @@ export default function BookingForm({
       setError("Utcheckning måste vara efter incheckning");
       return;
     }
-    if (isFullyBooked(bookings, checkInDate, checkOutDate)) {
+    if (isFullyBooked(hotelBookings, checkInDate, checkOutDate)) {
       setError("Hotellet är fullbokat de valda datumen");
       return;
     }
+
 
     const newBooking = {
       id: "",
@@ -52,8 +63,18 @@ export default function BookingForm({
       guests: guests,
     };
 
-    await createBooking(newBooking);
-  };
+
+     try {
+  await createBooking(newBooking);
+  router.refresh()
+  onSuccess()
+
+  } catch (error) {
+    setError("Kunde inte skapa bokning")
+  }
+};
+
+  
 
   return (
     <form onSubmit={handleSubmit}>

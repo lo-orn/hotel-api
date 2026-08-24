@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import { ActionButton } from "./buttons/ActionButton";
+import GuestForm from "./GuestForm";
 
 export default function GuestModalBtn() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -11,7 +12,7 @@ export default function GuestModalBtn() {
 
       {modalOpen && (
         <Modal title="Gäst" onClose={() => setModalOpen(false)}>
-          <p>test</p>
+         <GuestForm onSuccess={() => setModalOpen(false)}/>
         </Modal>
       )}
     </>

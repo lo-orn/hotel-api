@@ -4,18 +4,10 @@ import { Booking } from "@/app/models/Booking";
 
 type CustomersProps = {
   customers: Customer[];
-  bookings: Booking[];
-  hotelId: string;
 };
 
-export const Customers = ({ customers, bookings, hotelId }: CustomersProps) => {
-  const customerIdAsHotel = bookings
-    .filter((booking) => booking.data.hotelId === hotelId)
-    .map((booking) => booking.data.customerId);
+export const Customers = ({ customers }: CustomersProps) => {
 
-  const hotelCustomers = customers.filter((customer) =>
-    customerIdAsHotel.includes(customer.id),
-  );
 
   return (
     <section className="overflow-x-auto bg-[#E8E1D8] shadow-sm">
@@ -46,7 +38,7 @@ export const Customers = ({ customers, bookings, hotelId }: CustomersProps) => {
         </thead>
 
         <tbody className="divide-y divide-[#DFDDDA] border-t border-[#DFDDDA]">
-          {hotelCustomers.map((customer) => (
+          {customers.map((customer) => (
             <ShowCustomer key={customer.id} customer={customer} />
           ))}
         </tbody>

@@ -20,7 +20,7 @@ export default function BookingModalBtn({customers, bookings, hotelId}: BookingM
 
       {modalOpen && (
         <Modal title="Bokning" onClose={() => setModalOpen(false)}>
-          <BookingForm customers={customers} bookings={bookings} hotelId={hotelId}/>
+          <BookingForm customers={customers} bookings={bookings} hotelId={hotelId} onSuccess={() =>setModalOpen(false)}/>
         </Modal>
       )}
     </>
