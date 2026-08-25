@@ -9,9 +9,10 @@ type BookingPageProps = {
   allBookings: Booking[];
   allCustomers: Customer[];
   hotelId: string;
+  page: number;
 };
 
-export const BookingPageContent = ({ allBookings, allCustomers, hotelId }: BookingPageProps) => {
+export const BookingPageContent = ({ allBookings, allCustomers, hotelId, page }: BookingPageProps) => {
   const removeBooking = async (id: string) => {
     await deleteBooking(id);
     window.location.reload();
@@ -34,6 +35,7 @@ export const BookingPageContent = ({ allBookings, allCustomers, hotelId }: Booki
       removeBooking={removeBooking}
       saveBooking={saveBooking}
       hotelId={hotelId}
+      page={page}
     />
   );
 };
