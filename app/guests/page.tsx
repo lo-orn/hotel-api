@@ -13,12 +13,7 @@ export default async function GuestsPage() {
                     <h1 className="[font-family:var(--font-display)] text-[48px] font-light leading-[39.6px] tracking-[-0.36px] text-black">Gäster</h1>
                 </div>
 
-                <button
-                type="button"
-                className="min-h-11 self-start border border-black px-7 py-3 [font-family:var(--font-body)] text-xs uppercase tracking-[0.1em] transition-colors hover:bg-black hover:text-white sm:self-auto"
-                >
-                    + REGISTRERA GÄST
-                </button>
+                <GuestModalBtn />
             </div>
 
       <Customers customers={customers} />

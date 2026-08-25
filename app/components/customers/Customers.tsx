@@ -1,6 +1,5 @@
 import { Customer } from "@/app/models/Customer";
 import { ShowCustomer } from "./ShowCustomer";
-import { Booking } from "@/app/models/Booking";
 
 type CustomersProps = {
   customers: Customer[];
@@ -16,7 +15,7 @@ export const Customers = ({ customers }: CustomersProps) => {
           <tr className="border-b border-[#DFDDDA]">
             <th
               scope="col"
-              className="w-[30%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+              className="w-[35%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
             >
               Namn
             </th>
@@ -30,9 +29,9 @@ export const Customers = ({ customers }: CustomersProps) => {
 
             <th
               scope="col"
-              className="w-[15%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+              className="w-[25%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
             >
-              Vistelser
+              Åtgärder
             </th>
           </tr>
         </thead>

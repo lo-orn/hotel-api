@@ -1,5 +1,6 @@
 import { Customer } from "@/app/models/Customer";
 import { EditGuestModalBtn } from "./EditGuestModalBtn";
+import { DeleteGuestButton } from "./DeleteGuestButton";
 
 type ShowCustomerProp = {
   customer: Customer;
@@ -21,7 +22,10 @@ export const ShowCustomer = ({ customer }: ShowCustomerProp) => {
       </td> */}
 
       <td className="px-8 py-8 text-sm">
-        <EditGuestModalBtn customer={customer} />
+        <div className="flex items-center gap-6">
+           <EditGuestModalBtn customer={customer} />
+           <DeleteGuestButton id={customer.id} name={`${customer.data.firstName} ${customer.data.lastName}`} />
+        </div>
       </td>
     </tr>
   );
