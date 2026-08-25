@@ -42,48 +42,48 @@ export const Bookings = ({
 
   return (
     <>
-      <section className="overflow-x-auto bg-[#E8E1D8] shadow-sm">
-        <table className="w-full table-fixed border-collapse [font-family:var(--font-body)]">
+      <section className="overflow-x-auto bg-secondary shadow-sm">
+        <table className="w-full table-fixed border-collapse font-body">
           <thead>
-            <tr className="border-b border-[#DFDDDA]">
+            <tr className="border-b border-stone">
               <th
                 scope="col"
-                className="w-[8%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+                className="w-[8%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 NR.
               </th>
               <th
                 scope="col"
-                className="w-[24%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+                className="w-[24%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 GÄST
               </th>
               <th
                 scope="col"
-                className="w-[18%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+                className="w-[18%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 INCHECKNING
               </th>
               <th
                 scope="col"
-                className="w-[18%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+                className="w-[18%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 UTCHECKNING
               </th>
               <th
                 scope="col"
-                className="w-[12%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+                className="w-[12%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 NÄTTER
               </th>
               <th
                 scope="col"
-                className="w-[20%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+                className="w-[20%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               ></th>
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-[#DFDDDA] border-t border-[#DFDDDA]">
+          <tbody className="divide-y divide-stone border-t border-stone">
             {bookingsToShow.map((oneBooking, index) => (
               <ShowBooking
                 key={oneBooking.id}
@@ -97,7 +97,7 @@ export const Bookings = ({
           </tbody>
         </table>
       </section>
-      <div className="mt-6 flex items-center justify-center gap-4 [font-family:var(--font-body)] text-sm">
+      <div className="mt-6 flex items-center justify-center gap-4 font-body text-sm">
         {page > 1 && (
           <Link href={`/bookings?page=${page - 1}`} className="underline">
             Föregående

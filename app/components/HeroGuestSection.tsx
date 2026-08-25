@@ -28,58 +28,64 @@ export default function HeroGuestSection({
   const comingWeek = getComingWeek(hotelBookings);
 
   return (
-    <div className="grid grid-cols-3 gap-2 m-4">
-      <div className="col-span-2 bg-stone p-8">
+    <div className="grid grid-cols-2 gap-2 m-4">
+      <div className=" bg-stone p-8">
         <div className="flex items-center justify-between">
           <h2 className="font-display text-lg">Incheckningar idag</h2>
           <span className="text-xs uppercase tracking-wide text-charcoal/60">
-            {checkIns.length} gäster
+            {checkIns.length} {checkIns.length === 1 ? "gäst" : "gäster"}
           </span>
         </div>
 
-        <div className="mt-6 divide-y divide-charcoal/10">
-          {checkIns.map((booking) => (
-            <div key={booking.id} className="py-4">
-              <p className="text-lg">
-                {findCustomerName(customers, booking.data.customerId)}
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-wide text-charcoal">
-                {countNights(
-                  booking.data.checkInDate,
-                  booking.data.checkOutDate,
-                )}{" "}
-                nätter - utcheckning {booking.data.checkOutDate}
-              </p>
-            </div>
-          ))}
-          
+        <div className=" mt-6 divide-y divide-charcoal/10">
+          {checkIns.map((booking) => {
+            const nights = countNights(
+              booking.data.checkInDate,
+              booking.data.checkOutDate,
+            );
+            return (
+              <div key={booking.id} className="py-4">
+                <p className="text-lg">
+                  {findCustomerName(customers, booking.data.customerId)}
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-wide text-charcoal">
+                  {nights} {nights === 1 ? "natt" : "nätter"} · utcheckning{" "}
+                  {booking.data.checkOutDate}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      <div className="col-span-1 flex flex-col gap-6 bg-stone">
+      <div className="flex flex-col gap-6 bg-stone">
         <div className="bg-stone p-8">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-lg">Kommande vecka</h2>
-            <a href="#" className="text-xs underline">
+            <a href="bookings" className="text-xs underline">
               Visa alla
             </a>
           </div>
 
           <div className="mt-6 divide-y divide-charcoal/10">
-            {comingWeek.map((booking) => (
-              <div key={booking.id} className="py-4">
-                <p className="text-lg">
-                  {findCustomerName(customers, booking.data.customerId)}
-                </p>
-                <p className="mt-1 text-xs uppercase tracking-wide text-charcoal/50">
-                  {countNights(
-                    booking.data.checkInDate,
-                    booking.data.checkOutDate,
-                  )}{" "}
-                  nätter in {booking.data.checkInDate}
-                </p>
-              </div>
-            ))}
+            {comingWeek.map((booking) => {
+              const nights = countNights(
+                booking.data.checkInDate,
+                booking.data.checkOutDate,
+              );
+
+              return (
+                <div key={booking.id} className="py-4">
+                  <p className="text-lg">
+                    {findCustomerName(customers, booking.data.customerId)}
+                  </p>
+                  <p className="mt-1 text-xs uppercase tracking-widest text-charcoal/60">
+                    {nights} {nights === 1 ? "natt" : "nätter"} · incheckning{" "}
+                    {booking.data.checkInDate}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
 

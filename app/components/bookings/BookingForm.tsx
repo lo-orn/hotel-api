@@ -9,22 +9,21 @@ import {
   isPastDate,
 } from "../../lib/validation";
 import { Booking } from "../../models/Booking";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 type BookingFormProps = {
   customers: Customer[];
   bookings: Booking[];
   hotelId: string;
-   onSuccess: () => void;
+  onSuccess: () => void;
 };
 
 export default function BookingForm({
   customers,
   bookings,
   hotelId,
-  onSuccess
+  onSuccess,
 }: BookingFormProps) {
-
   const router = useRouter();
 
   const [customerId, setCustomerId] = useState("");
@@ -34,8 +33,8 @@ export default function BookingForm({
   const [error, setError] = useState("");
 
   const hotelBookings = bookings.filter(
-  (booking) => booking.data.hotelId === hotelId,
-);
+    (booking) => booking.data.hotelId === hotelId,
+  );
 
   const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
@@ -53,7 +52,6 @@ export default function BookingForm({
       return;
     }
 
-
     const newBooking = {
       id: "",
       hotelId: hotelId,
@@ -63,24 +61,20 @@ export default function BookingForm({
       guests: guests,
     };
 
-
-     try {
-  await createBooking(newBooking);
-  router.refresh()
-  onSuccess()
-
-  } catch (error) {
-    setError("Kunde inte skapa bokning")
-  }
-};
-
-  
+    try {
+      await createBooking(newBooking);
+      router.refresh();
+      onSuccess();
+    } catch (error) {
+      setError("Kunde inte skapa bokning");
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form onSubmit={handleSubmit} className="mt-8 space-y-8">
+      <div className="flex flex-col gap-2">
         <label
-          className="block text-xs uppercase tracking-widest text-charcoal"
+          className="text-xs uppercase tracking-widest text-charcoal"
           htmlFor="guest"
         >
           Gäst
@@ -115,39 +109,41 @@ export default function BookingForm({
           max="4"
           value={guests}
           onChange={(e) => setGuests(Number(e.target.value))}
-          className="mt-4 w-full border-b border-charcoal bg-transparent pb-2 focus:border-steel focus:outline-none"
+          className="w-full border-b border-charcoal bg-transparent pb-2 focus:border-steel focus:outline-none"
         ></input>
       </div>
 
-      <div>
-        <label
-          className="block text-xs uppercase tracking-widest text-charcoal"
-          htmlFor="checkIn"
-        >
-          Incheckning
-        </label>
-        <input
-          type="date"
-          id="checkIn"
-          value={checkInDate}
-          onChange={(e) => setCheckInDate(e.target.value)}
-          className="mt-4 w-full border-b border-charcoal bg-transparent pb-2 focus:border-steel focus:outline-none"
-        />
-      </div>
-      <div>
-        <label
-          className="block text-xs uppercase tracking-widest text-charcoal"
-          htmlFor="checkOut"
-        >
-          Utcheckning
-        </label>
-        <input
-          type="date"
-          id="checkOut"
-          value={checkOutDate}
-          onChange={(e) => setCheckOutDate(e.target.value)}
-          className="mt-4 w-full border-b border-charcoal bg-transparent pb-2 focus:border-steel focus:outline-none"
-        />
+      <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2">
+        <div>
+          <label
+            className="block text-xs uppercase tracking-widest text-charcoal"
+            htmlFor="checkIn"
+          >
+            Incheckning
+          </label>
+          <input
+            type="date"
+            id="checkIn"
+            value={checkInDate}
+            onChange={(e) => setCheckInDate(e.target.value)}
+            className="w-full border-b border-charcoal bg-transparent pb-2 focus:border-steel focus:outline-none"
+          />
+        </div>
+        <div>
+          <label
+            className="block text-xs uppercase tracking-widest text-charcoal"
+            htmlFor="checkOut"
+          >
+            Utcheckning
+          </label>
+          <input
+            type="date"
+            id="checkOut"
+            value={checkOutDate}
+            onChange={(e) => setCheckOutDate(e.target.value)}
+            className="w-full border-b border-charcoal bg-transparent pb-2 focus:border-steel focus:outline-none"
+          />
+        </div>
       </div>
 
       {error && (
@@ -156,12 +152,14 @@ export default function BookingForm({
         </p>
       )}
 
-      <button
-        className="mt-10 w-full bg-black px-8 py-5 text-xs uppercase tracking-widest text-cream border border-black hover:bg-cream hover:text-black transition-colors"
-        type="submit"
-      >
-        Registrera bokning
-      </button>
+      <div className="border-t border-charcoal/20 pt-6">
+        <button
+          className="min-h-11 w-full bg-black px-6 text-xs uppercase tracking-widest text-cream cursor-pointer"
+          type="submit"
+        >
+          Registrera bokning
+        </button>
+      </div>
     </form>
   );
 }

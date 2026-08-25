@@ -13,15 +13,15 @@ export const ShowCustomer = ({ customer }: ShowCustomerProp) => {
         {customer.data.firstName} {customer.data.lastName}
       </td>
 
-      <td className="px-8 py-4 text-sm text-charcoal">
-        {customer.data.email}
-      </td>
-
+      <td className="px-8 py-4 text-sm text-charcoal">{customer.data.email}</td>
 
       <td className="px-8 py-4 text-sm">
         <div className="flex items-center gap-6">
-           <EditGuestModalBtn customer={customer} />
-           <DeleteGuestButton id={customer.id} name={`${customer.data.firstName} ${customer.data.lastName}`} />
+          <EditGuestModalBtn customer={customer} />
+          <DeleteGuestButton
+            id={customer.id}
+            name={`${customer.data.firstName} ${customer.data.lastName}`}
+          />
         </div>
       </td>
     </tr>

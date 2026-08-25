@@ -50,11 +50,11 @@ export const ShowBooking = ({
 
   if (isEditing) {
     return (
-      <tr className="border-b border-[#D2CEC8] bg-[#F0EBE3]">
-        <td className="px-8 py-6 text-sm text-[#303032]">{rowNumber}</td>
-        <td className="px-8 py-6 text-sm text-[#303032]">
+      <tr className="border-b border-[#D2CEC8] bg-primary">
+        <td className="px-8 py-4 text-sm text-charcoal">{rowNumber}</td>
+        <td className="px-8 py-4 text-sm text-charcoal">
           <select
-            className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-[#303032]"
+            className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-charcoal"
             value={changedBooking.customerId}
             onChange={(e) =>
               setChangedBooking({
@@ -70,9 +70,9 @@ export const ShowBooking = ({
             ))}
           </select>
         </td>
-        <td className="px-8 py-6 text-sm">
+        <td className="px-8 py-4 text-sm">
           <input
-            className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-[#303032]"
+            className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-charcoal"
             type="date"
             value={changedBooking.checkInDate}
             onChange={(e) =>
@@ -84,9 +84,9 @@ export const ShowBooking = ({
           />
         </td>
 
-        <td className="px-8 py-6 text-sm">
+        <td className="px-8 py-4 text-sm">
           <input
-            className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-[#303032]"
+            className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-charcoal"
             type="date"
             value={changedBooking.checkOutDate}
             onChange={(e) =>
@@ -98,17 +98,17 @@ export const ShowBooking = ({
           />
         </td>
 
-        <td className="px-8 py-6 text-sm text-[#303032]">
+        <td className="px-8 py-4 text-sm text-charcoal">
           {countNights(changedBooking.checkInDate, changedBooking.checkOutDate)}
         </td>
 
-        <td className="px-8 py-6 text-sm">
+        <td className="px-8 py-4 text-sm">
           <button
             type="button"
             onClick={() => {
               saveBooking(oneBooking.id, changedBooking);
             }}
-            className="mr-4 bg-black px-4 py-2 text-xs uppercase tracking-[0.1em] text-white"
+            className="mr-4 bg-black px-4 py-2 text-xs uppercase tracking-widest text-white"
           >
             Spara
           </button>
@@ -116,7 +116,7 @@ export const ShowBooking = ({
           <button
             type="button"
             onClick={() => setIsEditing(false)}
-            className="text-[#303032] underline underline-offset-2"
+            className="text-charcoal underline underline-offset-2"
           >
             Ångra
           </button>
@@ -127,22 +127,22 @@ export const ShowBooking = ({
 
   return (
     <>
-      <tr className="border-b border-[#D2CEC8] last:border-b-0 odd:bg-[#F0EBE3] even:bg-[#E8E1D8]">
-        <td className="px-8 py-8 text-sm text-[#303032]">{rowNumber}</td>
-        <td className="px-8 py-8 text-sm text-black">{customerName}</td>
-        <td className="px-8 py-8 text-sm text-[#303032]">
+      <tr className="border-b border-[#D2CEC8] last:border-b-0 odd:bg-primary even:bg-secondary transition-colors duration-200 hover:bg-black/3">
+        <td className="px-8 py-4 text-sm text-charcoal">{rowNumber}</td>
+        <td className="px-8 py-4 text-sm text-black">{customerName}</td>
+        <td className="px-8 py-4 text-sm text-charcoal">
           {oneBooking.data.checkInDate}
         </td>
-        <td className="px-8 py-8 text-sm text-[#303032]">
+        <td className="px-8 py-4 text-sm text-charcoal">
           {oneBooking.data.checkOutDate}
         </td>
-        <td className="px-8 py-8 text-sm text-[#303032]">{nights}</td>
+        <td className="px-8 py-4 text-sm text-charcoal">{nights}</td>
 
-        <td className="px-8 py-8 text-sm">
+        <td className="px-8 py-4 text-sm">
           <button
             type="button"
             onClick={() => setIsEditing(true)}
-            className="mr-4 text-[#303032] underline underline-offset-2"
+            className="mr-4 text-charcoal underline underline-offset-2"
           >
             Ändra
           </button>
@@ -152,7 +152,7 @@ export const ShowBooking = ({
             onClick={() => {
               removeBooking(oneBooking.id);
             }}
-            className="text-[#303032] underline underline-offset-2"
+            className="text-charcoal underline underline-offset-2"
           >
             Avboka
           </button>
