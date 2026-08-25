@@ -41,31 +41,31 @@ export default async function GuestsPage({ searchParams }: GuestsPageProps) {
 
             <Customers customers={customers} />
 
-            <div className="mt-8 flex items-center justify-between">
+            <div className="mt-8 flex items-center justify-between pt-6 [font-family:var(--font-body)]">
                 {page > 1 ? (
                     <Link
                         href={`/guests?page=${page - 1}`}
-                        className="text-sm underline underline-offset-2"
+                        className="flex min-h-11 items-center px-4 text-xs uppercase tracking-[0.1em] transition-colors hover:bg-black hover:text-white"
                     >
                         ← Föregående
                     </Link>
                 ) : (
-                    <span />
+                    <span className="min-h-11 min-w-11" />
                 )}
 
-                <span className="text-sm">
+                <span className="text-xs uppercase tracking-[0.1em] text-[#303032]">
                     Sida {page} av {totalPages}
                 </span>
 
                 {hasNextPage ? (
                     <Link
                         href={`/guests?page=${page + 1}`}
-                        className="text-sm underline underline-offset-2"
+                        className="flex min-h-11 items-center px-4 text-xs uppercase tracking-[0.1em] transition-colors hover:bg-black hover:text-white"
                     >
                         Nästa →
                     </Link>
                 ) : (
-                    <span />
+                    <span className="min-h-11 min-w-11" />
                 )}
             </div>
         </main>
