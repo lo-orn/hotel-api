@@ -1,9 +1,24 @@
 import { Customers } from "../components/customers/Customers";
 import GuestModalBtn from "../components/customers/GuestModalBtn";
 import { getCustomers } from "../services/customerApi";
+import Link from "next/link";
 
-export default async function GuestsPage() {
-    const customers = await getCustomers();
+const PAGE_SIZE = 10;
+
+type GuestsPageProps = {
+    searchParams: Promise<{page?: string}>
+};
+
+export default async function GuestsPage({ searchParams }: GuestsPageProps) {
+    const params = await searchParams;
+
+    const page = Math.max(Number(params.page) || 1, 1);
+    const offset = (page - 1) * PAGE_SIZE;
+
+    const fetchedCustomers = await getCustomers(PAGE_SIZE + 1, offset);
+
+    const hasNextPage = fetchedCustomers.length > PAGE_SIZE;
+    const customers = fetchedCustomers.slice(0, PAGE_SIZE);
     
     return (
         <main className="min-h-screen bg-[#F0EBE3] px-6 py-10 md:px-10 lg:px-14">
@@ -16,7 +31,35 @@ export default async function GuestsPage() {
                 <GuestModalBtn />
             </div>
 
-      <Customers customers={customers} />
-    </main>
+            <Customers customers={customers} />
+
+            <div className="mt-8 flex items-center justify-between">
+                {page > 1 ? (
+                    <Link
+                        href={`/guests?page=${page - 1}`}
+                        className="text-sm underline underline-offset-2"
+                    >
+                        ← Föregående
+                    </Link>
+                ) : (
+                    <span />
+                )}
+
+                <span className="text-sm">
+                    Sida {page}
+                </span>
+
+                {hasNextPage ? (
+                    <Link
+                        href={`/guests?page=${page + 1}`}
+                        className="text-sm underline underline-offset-2"
+                    >
+                        Nästa →
+                    </Link>
+                ) : (
+                    <span />
+                )}
+            </div>
+        </main>
   );
 }
