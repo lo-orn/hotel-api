@@ -9,34 +9,34 @@ export const Customers = ({ customers }: CustomersProps) => {
 
 
   return (
-    <section className="overflow-x-auto bg-[#E8E1D8] shadow-sm">
-      <table className="w-full table-fixed border-collapse [font-family:var(--font-body)]">
+    <section className="mx-auto overflow-x-auto bg-secondary shadow-sm">
+      <table className="w-full table-fixed border-collapse font-body">
         <thead>
-          <tr className="border-b border-[#DFDDDA]">
+          <tr className="border-b border-stone">
             <th
               scope="col"
-              className="w-[35%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+              className="w-[40%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
             >
               Namn
             </th>
 
             <th
               scope="col"
-              className="w-[40%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+              className="w-[40%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
             >
               E-post
             </th>
 
             <th
               scope="col"
-              className="w-[25%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-[#303032]"
+              className="w-[20%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
             >
               Åtgärder
             </th>
           </tr>
         </thead>
 
-        <tbody className="divide-y divide-[#DFDDDA] border-t border-[#DFDDDA]">
+        <tbody className="divide-y divide-stone border-t border-stone">
           {customers.map((customer) => (
             <ShowCustomer key={customer.id} customer={customer} />
           ))}

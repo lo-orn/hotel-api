@@ -18,7 +18,7 @@ export const GuestForm = ({ onSuccess }: GuestFormProps) => {
                 <div className="flex flex-col gap-2">
                     <label 
                         htmlFor="firstName" 
-                        className="text-xs uppercase tracking-[0.1em]"
+                        className="text-xs uppercase tracking-widest"
                     >
                         Förnamn
                     </label>
@@ -35,7 +35,7 @@ export const GuestForm = ({ onSuccess }: GuestFormProps) => {
                 <div className="flex flex-col gap-2">
                     <label 
                         htmlFor="lastName" 
-                        className="text-xs uppercase tracking-[0.1em]"
+                        className="text-xs uppercase tracking-widest"
                     >
                         Efternamn
                     </label>
@@ -53,7 +53,7 @@ export const GuestForm = ({ onSuccess }: GuestFormProps) => {
             <div className="flex flex-col gap-2">
                 <label 
                     htmlFor="email" 
-                    className="text-xs uppercase tracking-[0.1em]"
+                    className="text-xs uppercase tracking-widest"
                 >
                     Email
                 </label>
@@ -70,7 +70,7 @@ export const GuestForm = ({ onSuccess }: GuestFormProps) => {
             <div className="border-t border-charcoal/20 pt-6">
                 <button 
                     type="submit" 
-                    className="min-h-11 w-full bg-black px-6 text-xs uppercase tracking-[0.1em] text-cream cursor-pointer"
+                    className="min-h-11 w-full bg-black px-6 text-xs uppercase tracking-widest text-cream cursor-pointer"
                 >
                     Registrera gäst
                 </button>
