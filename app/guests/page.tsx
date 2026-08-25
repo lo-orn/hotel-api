@@ -12,13 +12,21 @@ type GuestsPageProps = {
 export default async function GuestsPage({ searchParams }: GuestsPageProps) {
     const params = await searchParams;
 
-    const page = Math.max(Number(params.page) || 1, 1);
+    const allCustomers = await getCustomers();
+
+    const totalCustomers = allCustomers.length;
+
+    const totalPages = Math.max(Math.ceil(totalCustomers / PAGE_SIZE), 1);
+
+    const requestedPage = Math.max(Number(params.page) || 1, 1);
+
+    const page = Math.min(requestedPage, totalPages);
+
     const offset = (page - 1) * PAGE_SIZE;
 
-    const fetchedCustomers = await getCustomers(PAGE_SIZE + 1, offset);
+    const customers = await getCustomers(PAGE_SIZE, offset);
 
-    const hasNextPage = fetchedCustomers.length > PAGE_SIZE;
-    const customers = fetchedCustomers.slice(0, PAGE_SIZE);
+    const hasNextPage = page < totalPages;
     
     return (
         <main className="min-h-screen bg-[#F0EBE3] px-6 py-10 md:px-10 lg:px-14">
@@ -46,7 +54,7 @@ export default async function GuestsPage({ searchParams }: GuestsPageProps) {
                 )}
 
                 <span className="text-sm">
-                    Sida {page}
+                    Sida {page} av {totalPages}
                 </span>
 
                 {hasNextPage ? (
