@@ -1,9 +1,32 @@
 import { Customers } from "../components/customers/Customers";
 import GuestModalBtn from "../components/customers/GuestModalBtn";
 import { getCustomers } from "../services/customerApi";
+import Link from "next/link";
 
-export default async function GuestsPage() {
-    const customers = await getCustomers();
+const PAGE_SIZE = 10;
+
+type GuestsPageProps = {
+    searchParams: Promise<{page?: string}>
+};
+
+export default async function GuestsPage({ searchParams }: GuestsPageProps) {
+    const params = await searchParams;
+
+    const allCustomers = await getCustomers();
+
+    const totalCustomers = allCustomers.length;
+
+    const totalPages = Math.max(Math.ceil(totalCustomers / PAGE_SIZE), 1);
+
+    const requestedPage = Math.max(Number(params.page) || 1, 1);
+
+    const page = Math.min(requestedPage, totalPages);
+
+    const offset = (page - 1) * PAGE_SIZE;
+
+    const customers = await getCustomers(PAGE_SIZE, offset);
+
+    const hasNextPage = page < totalPages;
     
     return (
         <main className="mx-auto min-h-screen bg-primary px-6 py-10 md:px-10 lg:px-14">
@@ -17,7 +40,35 @@ export default async function GuestsPage() {
                 <GuestModalBtn />
             </div>
 
-      <Customers customers={customers} />
-    </main>
+            <Customers customers={customers} />
+
+            <div className="mt-8 flex items-center justify-between pt-6 [font-family:var(--font-body)]">
+                {page > 1 ? (
+                    <Link
+                        href={`/guests?page=${page - 1}`}
+                        className="flex min-h-11 items-center px-4 text-xs uppercase tracking-[0.1em] transition-colors hover:bg-black hover:text-white"
+                    >
+                        ← Föregående
+                    </Link>
+                ) : (
+                    <span className="min-h-11 min-w-11" />
+                )}
+
+                <span className="text-xs uppercase tracking-[0.1em] text-[#303032]">
+                    Sida {page} av {totalPages}
+                </span>
+
+                {hasNextPage ? (
+                    <Link
+                        href={`/guests?page=${page + 1}`}
+                        className="flex min-h-11 items-center px-4 text-xs uppercase tracking-[0.1em] transition-colors hover:bg-black hover:text-white"
+                    >
+                        Nästa →
+                    </Link>
+                ) : (
+                    <span className="min-h-11 min-w-11" />
+                )}
+            </div>
+        </main>
   );
 }

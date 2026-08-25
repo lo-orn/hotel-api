@@ -3,12 +3,18 @@ import { Customer, CustomerDataForm } from "../models/Customer";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
-export const getCustomers = async (): Promise<Customer[]> => {
+export const getCustomers = async (limit?: number, offset?: number): Promise<Customer[]> => {
   if (!API_KEY) {
     throw new Error("API key is missing");
   }
 
-  const response = await fetch(`${API_URL}/customers`, {
+  let url = `${API_URL}/customers`;
+
+  if (limit !== undefined && offset !== undefined) {
+    url += `?limit=${limit}&offset=${offset}`;
+  }
+
+  const response = await fetch(url, {
     headers: {
       "X-API-Key": API_KEY,
     },
