@@ -4,12 +4,15 @@ import { Booking } from "../models/Booking";
 import { Customer } from "../models/Customer";
 import { getCustomers } from "../services/customerApi";
 import { LADAN_HOTEL_ID } from "../services/apiConfig";
+import BookingModalBtn from "../components/bookings/BookningModalBtn";
 
 type BookingsPageProps = {
   searchParams: Promise<{ page?: string }>;
 };
 
-export default async function BookingsPage({ searchParams }: BookingsPageProps) {
+export default async function BookingsPage({
+  searchParams,
+}: BookingsPageProps) {
   const { page: pageParam } = await searchParams;
   const page = Number(pageParam) || 1;
 
@@ -38,12 +41,11 @@ export default async function BookingsPage({ searchParams }: BookingsPageProps) 
             </h1>
           </div>
 
-          <button
-            type="button"
-            className="min-h-11 self-start border border-black px-7 py-3 [font-family:var(--font-body)] text-xs uppercase tracking-[0.1em] transition-colors hover:bg-black hover:text-white sm:self-auto"
-          >
-            + Ny bokning
-          </button>
+          <BookingModalBtn
+            customers={allCustomers}
+            bookings={allBookings}
+            hotelId={LADAN_HOTEL_ID}
+          />
         </div>
 
         <BookingPageContent
