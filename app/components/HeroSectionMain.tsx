@@ -21,7 +21,7 @@ export function HeroSectionMain({ bookings, hotelId }: HeroSectionProps) {
       <div className="bg-black text-cream p-10 flex flex-col justify-between min-h-0">
         <div>
           <p className="text-xs uppercase tracking-wide text-stone">{today}</p>
-          <h1 className="font-display text-5xl mt-4">
+          <h1 className="font-display text-5xl mt-4 tracking-tight">
             {" "}
            Dagens bokningsöversikt
           </h1>

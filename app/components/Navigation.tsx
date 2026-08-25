@@ -28,7 +28,8 @@ export default function Navigation() {
                         px-6 
                         text-sm 
                         transition-colors 
-                        ${isActive ? "border-black bg-[#F0EBE3] text-black" : "border-transparent text-[#303032] hover:bg-[#F0EBE3]"
+                        duration-200
+                        ${isActive ? "border-black bg-primary text-black" : "border-transparent text-charcoal hover:bg-primary"
                         }
                     `}
                 >

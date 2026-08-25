@@ -12,7 +12,7 @@ export function ActionButton({
   variant = "black",
 }: ActionButtonProps) {
   const baseBtnStyle =
-    "px-6 min-h-11 min-w-11 text-xs uppercase tracking-[0.1em]";
+    "px-6 min-h-11 min-w-11 text-xs uppercase tracking-[0.1em] transition-colors duration-200";
   const variantStyles =
     variant === "black"
       ? "bg-black text-cream"
