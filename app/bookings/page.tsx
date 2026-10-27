@@ -36,7 +36,7 @@ export default async function BookingsPage({
               HANTERING
             </p>
 
-            <h1 className="font-display text-5xl mt-4 tracking-tight">
+            <h1 className="font-display text-4xl md:text-5xl mt-4 tracking-tight">
               Bokningar
             </h1>
           </div>

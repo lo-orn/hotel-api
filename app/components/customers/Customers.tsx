@@ -10,26 +10,26 @@ export const Customers = ({ customers }: CustomersProps) => {
 
   return (
     <section className="mx-auto overflow-x-auto bg-secondary shadow-sm">
-      <table className="w-full table-fixed border-collapse font-body">
+      <table className="w-full min-w-140 table-fixed border-collapse font-body md:min-w-0">
         <thead>
           <tr className="border-b border-stone">
             <th
               scope="col"
-              className="w-[40%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+              className="w-[40%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
             >
               Namn
             </th>
 
             <th
               scope="col"
-              className="w-[40%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+              className="w-[40%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
             >
               E-post
             </th>
 
             <th
               scope="col"
-              className="w-[20%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+              className="w-[20%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
             >
               Åtgärder
             </th>

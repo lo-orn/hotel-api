@@ -35,7 +35,7 @@ export default async function GuestsPage({ searchParams }: GuestsPageProps) {
           <p className="mb-2 font-body text-xs font-light uppercase tracking-[0.15em] text-charcoal">
             REGISTER
           </p>
-          <h1 className="font-display text-5xl mt-4 tracking-tight">Gäster</h1>
+          <h1 className="font-display text-4xl md:text-5xl mt-4 tracking-tight">Gäster</h1>
         </div>
 
         <GuestModalBtn />

@@ -13,7 +13,7 @@ export default function Navigation() {
     const pathname = usePathname();
 
     return (
-        <nav aria-label="Huvudnavigation" className="flex h-16 items-stretch">
+        <nav aria-label="Huvudnavigation" className="order-last flex h-12 w-full items-stretch md:order-none md:h-16 md:w-auto">
             {links.map((link) => {
                 const isActive = pathname === link.href;
 
@@ -23,9 +23,11 @@ export default function Navigation() {
                     href={link.href}
                     aria-current={isActive ? "page" : undefined}
                     className={`
-                        flex items-center 
+                        flex flex-1 items-center justify-center
                         border-b-2 
-                        px-6 
+                        px-4 
+                        md:flex-none 
+                        md:px-6 
                         text-sm 
                         transition-colors 
                         duration-200

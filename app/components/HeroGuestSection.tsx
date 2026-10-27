@@ -28,8 +28,8 @@ export default function HeroGuestSection({
   const comingWeek = getComingWeek(hotelBookings);
 
   return (
-    <div className="grid grid-cols-2 gap-2 m-4">
-      <div className=" bg-stone p-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-2 m-4">
+      <div className=" bg-stone p-6 md:p-8">
         <div className="flex items-center justify-between">
           <h2 className="font-display text-lg">Incheckningar idag</h2>
           <span className="text-xs uppercase tracking-wide text-charcoal/60">
@@ -59,7 +59,7 @@ export default function HeroGuestSection({
       </div>
 
       <div className="flex flex-col gap-6 bg-stone">
-        <div className="bg-stone p-8">
+        <div className="bg-stone p-6 md:p-8">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-lg">Kommande vecka</h2>
             <a href="bookings" className="text-xs underline">

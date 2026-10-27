@@ -43,42 +43,42 @@ export const Bookings = ({
   return (
     <>
       <section className="overflow-x-auto bg-secondary shadow-sm">
-        <table className="w-full table-fixed border-collapse font-body">
+        <table className="w-full min-w-180 table-fixed border-collapse font-body md:min-w-0">
           <thead>
             <tr className="border-b border-stone">
               <th
                 scope="col"
-                className="w-[8%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+                className="w-[8%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 NR.
               </th>
               <th
                 scope="col"
-                className="w-[24%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+                className="w-[24%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 GÄST
               </th>
               <th
                 scope="col"
-                className="w-[18%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+                className="w-[18%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 INCHECKNING
               </th>
               <th
                 scope="col"
-                className="w-[18%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+                className="w-[18%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 UTCHECKNING
               </th>
               <th
                 scope="col"
-                className="w-[12%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+                className="w-[12%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               >
                 NÄTTER
               </th>
               <th
                 scope="col"
-                className="w-[20%] px-8 py-4 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
+                className="w-[20%] px-4 py-4 md:px-8 text-left text-xs font-light uppercase tracking-[0.12em] text-charcoal"
               ></th>
             </tr>
           </thead>

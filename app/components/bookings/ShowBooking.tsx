@@ -51,8 +51,8 @@ export const ShowBooking = ({
   if (isEditing) {
     return (
       <tr className="border-b border-[#D2CEC8] bg-primary">
-        <td className="px-8 py-4 text-sm text-charcoal">{rowNumber}</td>
-        <td className="px-8 py-4 text-sm text-charcoal">
+        <td className="px-4 py-4 md:px-8 text-sm text-charcoal">{rowNumber}</td>
+        <td className="px-4 py-4 md:px-8 text-sm text-charcoal">
           <select
             className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-charcoal"
             value={changedBooking.customerId}
@@ -70,7 +70,7 @@ export const ShowBooking = ({
             ))}
           </select>
         </td>
-        <td className="px-8 py-4 text-sm">
+        <td className="px-4 py-4 md:px-8 text-sm">
           <input
             className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-charcoal"
             type="date"
@@ -84,7 +84,7 @@ export const ShowBooking = ({
           />
         </td>
 
-        <td className="px-8 py-4 text-sm">
+        <td className="px-4 py-4 md:px-8 text-sm">
           <input
             className="w-full border border-[#D2CEC8] bg-white px-3 py-2 text-sm text-charcoal"
             type="date"
@@ -98,11 +98,11 @@ export const ShowBooking = ({
           />
         </td>
 
-        <td className="px-8 py-4 text-sm text-charcoal">
+        <td className="px-4 py-4 md:px-8 text-sm text-charcoal">
           {countNights(changedBooking.checkInDate, changedBooking.checkOutDate)}
         </td>
 
-        <td className="px-8 py-4 text-sm">
+        <td className="px-4 py-4 md:px-8 text-sm">
           <button
             type="button"
             onClick={() => {
@@ -128,17 +128,17 @@ export const ShowBooking = ({
   return (
     <>
       <tr className="border-b border-[#D2CEC8] last:border-b-0 odd:bg-primary even:bg-secondary transition-colors duration-200 hover:bg-black/3">
-        <td className="px-8 py-4 text-sm text-charcoal">{rowNumber}</td>
-        <td className="px-8 py-4 text-sm text-black">{customerName}</td>
-        <td className="px-8 py-4 text-sm text-charcoal">
+        <td className="px-4 py-4 md:px-8 text-sm text-charcoal">{rowNumber}</td>
+        <td className="px-4 py-4 md:px-8 text-sm text-black">{customerName}</td>
+        <td className="px-4 py-4 md:px-8 text-sm text-charcoal">
           {oneBooking.data.checkInDate}
         </td>
-        <td className="px-8 py-4 text-sm text-charcoal">
+        <td className="px-4 py-4 md:px-8 text-sm text-charcoal">
           {oneBooking.data.checkOutDate}
         </td>
-        <td className="px-8 py-4 text-sm text-charcoal">{nights}</td>
+        <td className="px-4 py-4 md:px-8 text-sm text-charcoal">{nights}</td>
 
-        <td className="px-8 py-4 text-sm">
+        <td className="px-4 py-4 md:px-8 text-sm">
           <button
             type="button"
             onClick={() => setIsEditing(true)}

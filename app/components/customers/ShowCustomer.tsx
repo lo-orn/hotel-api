@@ -9,13 +9,13 @@ type ShowCustomerProp = {
 export const ShowCustomer = ({ customer }: ShowCustomerProp) => {
   return (
     <tr className="border-b border-[#D2CEC8] last:border-b-0 odd:bg-primary even:bg-secondary transition-colors duration-200 hover:bg-black/3">
-      <td className="px-8 py-4 text-sm text-black">
+      <td className="px-4 py-4 md:px-8 text-sm text-black">
         {customer.data.firstName} {customer.data.lastName}
       </td>
 
-      <td className="px-8 py-4 text-sm text-charcoal">{customer.data.email}</td>
+      <td className="px-4 py-4 md:px-8 text-sm text-charcoal">{customer.data.email}</td>
 
-      <td className="px-8 py-4 text-sm">
+      <td className="px-4 py-4 md:px-8 text-sm">
         <div className="flex items-center gap-6">
           <EditGuestModalBtn customer={customer} />
           <DeleteGuestButton
